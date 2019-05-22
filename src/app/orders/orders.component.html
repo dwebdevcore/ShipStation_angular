@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1 class="text-center">Orders</h1>
+    <div class="row">
+      <div class="col-md-12 text-right search-box">
+        <input type="text" [(ngModel)]="term">
+      </div>
+    </div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">OrderId</th>
+        <th scope="col">Amount Paid</th>
+        <th>Carrier Code</th>
+        <th>Confirmation</th>
+        <th>Create Date</th>
+        <th>Customer Email</th>
+        <th>Customer Id</th>
+        <th>Customer Notes</th>
+        <th>Customer Username</th>
+        <th>Gift</th>
+        <th>Internal Notes</th>
+        <th>Order Date</th>
+        <th>Order Number</th>
+        <th>Order Status</th>
+        <th>Order Total</th>
+        <th>Package Code</th>
+        <th>Payment Date</th>
+        <th>Shipping Amount</th>
+        <th>Tax Amount</th>
+        <th>Requested Shipping Service</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let order of orders | paginate: { itemsPerPage: 10, currentPage: p } | filter:term">
+        <td>{{order.orderId}}</td>
+        <td>{{order.amountPaid}}</td>
+        <td>{{order.carrierCode}}</td>
+        <td>{{order.confirmation}}</td>
+        <td>{{order.createDate}}</td>
+        <td>{{order.customerEmail}}</td>
+        <td>{{order.customerId}}</td>
+        <td>{{order.customerNotes}}</td>
+        <td>{{order.customerUsername}}</td>
+        <td>{{order.gift}}</td>
+        <td>{{order.internalNotes}}</td>
+        <td>{{order.orderDate}}</td>
+        <td>{{order.orderNumber}}</td>
+        <td>{{order.orderStatus}}</td>
+        <td>{{order.orderTotal}}</td>
+        <td>{{order.packageCode}}</td>
+        <td>{{order.paymentDate}}</td>
+        <td>{{order.shippingAmount}}</td>
+        <td>{{order.taxAmount}}</td>
+        <td>{{order.requestedShippingService}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>
